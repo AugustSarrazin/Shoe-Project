@@ -74,9 +74,9 @@ class User:
         query = "SELECT * FROM users WHERE nick_name = %(nick_name)s;"
         results = connectToMySQL(User.db_name).query_db(query,user)
         if len(results) >= 1:
-            flash("Nick_name already taken.","register")
+            flash("Nick name already taken.","register")
         if len(user['nick_name']) < 2:
-            flash("Nickname must be at least 2 characters","register")
+            flash("Nick name must be at least 2 characters","register")
             is_valid= False
         if user['password'] != user['confirm']:
             flash("Passwords don't match","register")
