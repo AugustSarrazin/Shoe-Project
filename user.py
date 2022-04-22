@@ -19,7 +19,7 @@ class User:
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s);"
+        query = "INSERT INTO users (first_name,last_name,email,nick_name,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(nick_name)s,%(password)s);"
         return connectToMySQL(cls.db_name).query_db(query,data)
 
     @classmethod
