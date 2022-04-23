@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-center"> Welcome {{user.first_name}} </h1>
+    <h1 class="text-center"> Welcome </h1>
     <h1 class="text-center"> </h1>
     <a href="/add" class="btn btn-primary">Add my shoe</a>
     <a href="/logout" class="btn btn-primary">Logout</a>
@@ -18,7 +18,7 @@
             <tr>
                 <td>Likes    {{shoe.like}}</td>
                 <td>{{ shoe.name }}{{ shoe.brand }}{{ shoe.price }}</td>
-                <td>Created by {{ shoe.creator_nick_name }}</td>
+                <td>Created by {{ shoe.sneaker_head.nick_name }}</td>
                     <td>
                         <a href="/shoe/{{ shoe.id }}">View</a>
                         {% if shoe.users_id == session.users_id %} |
