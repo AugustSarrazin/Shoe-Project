@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">LogOut</a>
+    </header>
+    
+    <div>    
+        <form action="/create/shoe" method="post" class="col-6 mx-auto">
+            <h2 class="text-center">Register</h2>
+            {% with messages = get_flashed_messages(category_filter=['shoe']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Brand">Brand:</label>
+                <input type="text" name="brand"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="model">model:</label>
+                <input type="text" name="model"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="size">size:</label>
+                <select name="size" id="size">
+                    <option value=""></option>
+                    <script>
+                        for(var i=5;i<=16;i=i+0.5)
+                        {
+                            document.write('<option>'+i+"</option>");
+                        }
+                    </script>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" name="price"  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" id="" cols="60" rows="10" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Upload Photo</label>
+                <input type="file" name="photo">
+            </div>
+            <input type="Submit" value="Add">                      
+        </form>
+    </div>
+    <script src="project/Shoe-Project/flask_app/templates/script.js"></script>
+</body>
+</html>

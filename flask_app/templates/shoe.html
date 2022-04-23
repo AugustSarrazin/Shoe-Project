@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">LogOut</a>
+    </header>
+    
+    <div class="container" style="display:inline-block">
+        <h3>{{shoe.name}}</h3>
+        <img src="" alt="" style="display:inline-block">
+        <div style="display:inline-block">
+            <p>Name: {{shoe.name}}</p>
+            <p>Brand:  {{shoe.brand}} </p>
+            <p>Model:  {{shoe.model}} </p>
+            <p>Size: {{shoe.size}}</p>
+            <p>Price: {{shoe.price}})</p>
+            <p>Descrption: {{shoe.description}}</p>
+            <img src="{{shoe.photo}}" alt="Oops">
+        </div>
+    </div>
+    
+</body>
+</html>
