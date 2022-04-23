@@ -5,7 +5,7 @@ from flask_app.models.shoe import Shoe
 
 @app.route('/')
 def index():
-    return render_template('index.html', shoes=Shoe.get_all_shoes_with_sneaker_head)
+    return render_template('index.html', shoes=Shoe.get_all_shoes_with_sneaker_head())
 
 @app.route('/new/shoe')
 def new_event():
