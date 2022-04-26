@@ -64,7 +64,7 @@ def update_shoe():
             'price': request.form['price'],
             'description': request.form['description'],
             'user_id': request.form['user_id']
-           
+        
     }
     Shoe.update(data)
     return redirect('/dashboard')
