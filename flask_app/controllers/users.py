@@ -2,6 +2,7 @@ from flask import render_template,redirect,session,request, flash
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.shoe import Shoe
+from flask_app.models.comment import Comment
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -53,3 +54,4 @@ def show_names():
 def logout():
     session.clear()
     return redirect('/')
+
