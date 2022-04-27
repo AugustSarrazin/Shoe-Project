@@ -14,7 +14,7 @@
         <h1 class="text-center"> </h1>
         <div class="container pt-5">
             <div class="row d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="/add" class="btn btn-dark col-sm-2 btn-sm">Add my shoe</a>
+                <a href="/new/shoe" class="btn btn-dark col-sm-2 btn-sm">Add my shoe</a>
                 <a href="/logout" class="btn btn-dark col-sm-2 btn-sm">Logout</a>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <td>Name of shoe: {{ shoe.name }}        Brand: {{ shoe.brand }}   Price: {{ shoe.price }} Created by {{ shoe.sneaker_head.nick_name }}</td>
                         <td>
                             <a href="/shoe/{{ shoe.id }}">View</a>
-                            {% if shoe.users_id == session.users_id %} |
+                            {% if shoe.user_id == session.user_id %} |
                             <a href="/edit/shoe/{{ shoe.id }}">Edit</a> |
                             <a href="/delete/shoe/{{ shoe.id }}">Delete</a>
                             {% endif %}
