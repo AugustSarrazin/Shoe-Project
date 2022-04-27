@@ -29,7 +29,11 @@
                 <p>Descrption: {{shoe.description}}</p>
                 <img src="{{shoe.photo}}" alt="Oops">
             </div>
-        </div>
+            <form action="/like/{{shoe.id}}" method="post" >
+                <input type="hidden" name ="shoe.id" value="{{shoe.id}}">  
+                <input class="btn btn-dark col-sm-2 btn-sm mt-2" type="submit" value="I want it">
+            </form>
+        </div>        
         <div class="container" style="display:inline-block">
             <form action="/comment" method="post">
                 <input type="hidden" name ="shoe.id" value="{{shoe.id}}">    
@@ -37,8 +41,8 @@
                 <input class="btn btn-dark col-sm-2 btn-sm mt-2" type="Submit" value="Post Comment"> 
             </form>
         </div>
+        
         <div class="container" style="display:inline-block">
-            
             <table class="table table-dark table-hover table-bordered table-striped"> 
                 <thead>
                     <td>Nick name</td>
