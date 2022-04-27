@@ -3,7 +3,11 @@ from flask import flash
 from flask_app.models import user
 
 class Shoe:
+<<<<<<< Updated upstream
     db_name = 'fassion_shoes'
+=======
+    db_name = 'fashion_shoes'
+>>>>>>> Stashed changes
     def __init__(self,db_data):
         self.id = db_data['id']
         self.name = db_data['name']

@@ -78,6 +78,6 @@ class User:
         if len(user['nick_name']) < 2:
             flash("Nick name must be at least 2 characters","register")
             is_valid= False
-        if user['password'] != user['confirm']:
+        if user['password'] != user['confirm_password']:
             flash("Passwords don't match","register")
         return is_valid 
