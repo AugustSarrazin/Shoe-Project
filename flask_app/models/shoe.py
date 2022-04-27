@@ -49,7 +49,7 @@ class Shoe:
     
     @classmethod
     def get_one(cls,data):
-        query = "SELECT * FROM shoes WHERE id = %(id)s;"
+        query = "SELECT * FROM shoes left join users on user_id = users.id WHERE shoes.id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
         return cls( results[0] )
 
