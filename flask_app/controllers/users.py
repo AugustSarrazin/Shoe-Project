@@ -16,7 +16,7 @@ def login_page():
 @app.route('/new_user',methods=['POST'])
 def register():
     if not User.validate_register(request.form):
-        return redirect('/')
+        return redirect('/login_and_registration')
     data ={ 
         "first_name": request.form['first_name'],
         "last_name": request.form['last_name'],
@@ -33,10 +33,10 @@ def login():
     user = User.get_by_email(request.form)
     if not user:
         flash("Invalid Email","login")
-        return redirect('/')
+        return redirect('/login_and_registration')
     if not bcrypt.check_password_hash(user.password, request.form['password']):
         flash("Invalid Password","login")
-        return redirect('/')
+        return redirect('/login_and_registration')
     session['user_id'] = user.id
     return redirect('/')
 
