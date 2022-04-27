@@ -1,8 +1,16 @@
-from flask import render_template,redirect,session,request
+from flask import render_template,redirect,session,request, flash
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.shoe import Shoe
 
+@app.route('/dashboard')
+def dashboard():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        "id":session['user_id']
+    }
+    return render_template('dashboard.html',shoe=Shoe.get_all(), user=User.get_by_id(data))
 
 @app.route('/new/shoe')
 def new_shoe():
@@ -12,16 +20,6 @@ def new_shoe():
         "id":session['user_id']
     }
     return render_template('add_shoe.html',user=User.get_by_id(data))
-
-
-@app.route('/dashboard')
-def dashboard():
-    if 'user_id' not in session:
-        return redirect('/logout')
-    data = {
-        "id":session['user_id']
-    }
-    return render_template('dashboard.html', shoes=Shoe.get_all(), user=User.get_by_id(data))
 
 @app.route('/create/shoe', methods=['POST'])
 def create_shoe():
@@ -52,8 +50,6 @@ def edit_shoe(id):
         "id":session['user_id']
     }
     return render_template("edit_shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data))
-
-
 
 @app.route('/update/shoe',methods=['POST'])
 def update_shoe():

@@ -91,19 +91,3 @@ class Shoe:
             flash('Model required 3 characters','shoe')
         return is_valid
     
-    
-class Shoe:
-    db_name = 'fassion_shoes'
-    def __init__(self,db_data):
-        self.id = db_data['id']
-        self.name = db_data['name']
-        self.brand = db_data['brand']
-        self.model = db_data['model']
-        self.size = db_data['size']
-        self.price = db_data['price']
-        self.description = db_data['description']
-        # self.photo = db_data['photo']
-        self.created_at = db_data['created_at']
-        self.updated_at = db_data['updated_at']
-        self.user_id = db_data['user_id']
-        self.sneaker_head = None
