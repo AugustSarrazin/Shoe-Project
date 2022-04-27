@@ -10,7 +10,7 @@ def dashboard():
     data = {
         "id":session['user_id']
     }
-    return render_template('dashboard.html',shoes=Shoe.get_all(), user=User.get_by_id(data))
+    return render_template('dashboard.html',shoes=Shoe.get_all_with_creator(), user=User.get_by_id(data))
 
 @app.route('/new/shoe')
 def new_shoe():

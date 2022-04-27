@@ -29,7 +29,7 @@
                 {% for shoe in shoes %}
                 <tr>
                     <td>Likes {{shoe.like}}</td>
-                    <td>Name of shoe: {{ shoe.name }}        Brand: {{ shoe.brand }}   Price: {{ shoe.price }} Created by {{ shoe.sneaker_head.nick_name }}</td>
+                    <td>Name of shoe: {{ shoe.name }}        Brand: {{ shoe.brand }}   Price: {{ shoe.price }} Created by {{ shoe.nick_name }}</td>
                         <td>
                             <a href="/shoe/{{ shoe.id }}">View</a>
                             {% if shoe.user_id == session.user_id %} |

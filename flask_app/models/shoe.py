@@ -16,7 +16,7 @@ class Shoe:
         self.created_at = db_data['created_at']
         self.updated_at = db_data['updated_at']
         self.user_id = db_data['user_id']
-        self.sneaker_head = None
+        self.nick_name = db_data['nick_name']
     
     @classmethod 
     def save(cls,data):
@@ -32,6 +32,14 @@ class Shoe:
             all_shoes.append( cls(row) )
         return all_shoes
     
+    @classmethod
+    def get_all_with_creator(cls):
+        query = "SELECT * FROM shoes left join users on user_id = users.id;"
+        results =  connectToMySQL(cls.db_name).query_db(query)
+        all_shoes = []
+        for row in results:
+            all_shoes.append( cls(row) )
+        return all_shoes
     
     @classmethod
     def delete(cls, data):
