@@ -16,7 +16,12 @@ def new_shoe():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html', shoes=Shoe.get_all_shoes_with_sneaker_head())
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        "id":session['user_id']
+    }
+    return render_template('dashboard.html', shoes=Shoe.get_all(), user=User.get_by_id(data))
 
 @app.route('/create/shoe', methods=['POST'])
 def create_shoe():
@@ -46,7 +51,7 @@ def edit_shoe(id):
     user_data = {
         "id":session['user_id']
     }
-    return render_template("edit_shoe.html",edit=Shoe.get_one(data),user=User.get_by_id(user_data))
+    return render_template("edit_shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data))
 
 
 
@@ -58,12 +63,12 @@ def update_shoe():
         return redirect('/dashboard')
     data = {
         'name': request.form['name'],
-            'brand': request.form['brand'],
-            'model': request.form['model'],
-            'size': request.form['size'],
-            'price': request.form['price'],
-            'description': request.form['description'],
-            'user_id': request.form['user_id']
+        'brand': request.form['brand'],
+        'model': request.form['model'],
+        'size': request.form['size'],
+        'price': request.form['price'],
+        'description': request.form['description'],
+        'user_id': request.form['user_id']
         
     }
     Shoe.update(data)
@@ -82,12 +87,12 @@ def show_shoe(id):
     return render_template("shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data))
 
 
-@app.route('/destroy/shoe/<int:id>')
+@app.route('/delete/shoe/<int:id>')
 def destroy_shoe(id):
     if 'user_id' not in session:
         return redirect('/logout')
     data = {
         "id":id
     }
-    Shoe.destroy(data)
+    Shoe.delete(data)
     return redirect('/dashboard')

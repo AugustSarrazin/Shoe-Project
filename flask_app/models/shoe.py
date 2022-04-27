@@ -3,7 +3,7 @@ from flask import flash
 from flask_app.models import user
 
 class Shoe:
-    db_name = 'fassion_shoe'
+    db_name = 'fassion_shoes'
     def __init__(self,db_data):
         self.id = db_data['id']
         self.name = db_data['name']
@@ -14,7 +14,8 @@ class Shoe:
         self.description = db_data['description']
         # self.photo = db_data['photo']
         self.created_at = db_data['created_at']
-        self.updated_at = db_data['upated_at']
+        self.updated_at = db_data['updated_at']
+        self.user_id = db_data['user_id']
         self.sneaker_head = None
     
     @classmethod 
@@ -30,6 +31,13 @@ class Shoe:
         for row in results:
             all_shoes.append( cls(row) )
         return all_shoes
+    
+    
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM shoes Where id = %(id)s;"
+        return connectToMySQL(cls.db_name).query_db(query,data)
+    
     
     @classmethod
     def get_one(cls,data):

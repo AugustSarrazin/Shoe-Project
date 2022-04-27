@@ -4,7 +4,7 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 from flask import flash
 
 class User:
-    db_name = "fashion_shoes"
+    db_name = "fassion_shoes"
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
