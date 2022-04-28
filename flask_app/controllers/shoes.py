@@ -3,6 +3,7 @@ from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.shoe import Shoe
 from flask_app.models.comment import Comment
+from flask_app.models.like import Like, Likecount
 
 @app.route('/dashboard')
 def dashboard():
@@ -81,7 +82,7 @@ def show_shoe(id):
     user_data = {
         "id":session['user_id']
     }
-    return render_template("shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data), comments=Comment.get_comment_with_nick_name(data))
+    return render_template("shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data), comments=Comment.get_comment_with_nick_name(data),like=Likecount.likescount(data))
 
 
 @app.route('/delete/shoe/<int:id>')
