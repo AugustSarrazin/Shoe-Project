@@ -35,6 +35,7 @@
                         <p>Size: {{shoe.size}}</p>
                         <p>Price: {{shoe.price}}</p>
                         <p>Descrption: {{shoe.description}}</p>
+                        <p>Like received: {{shoe.likes}}</p>
                     </div>
                     <form action="/like/{{shoe.id}}" method="post" >
                         <input type="hidden" name ="shoe.id" value="{{shoe.id}}">  
@@ -43,7 +44,6 @@
                 </div>
             </div>
             <div class="container col">
-                <p>Like received {{like.count}}</p>
                 <table class="table table-dark table-hover table-bordered table-striped"> 
                     <thead>
                         <td>Nick name</td>

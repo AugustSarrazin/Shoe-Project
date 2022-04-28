@@ -19,12 +19,15 @@ class Shoe:
         self.updated_at = db_data['updated_at']
         self.user_id = db_data['user_id']
         self.nick_name = db_data['nick_name']
-    
+        self.likes = db_data['count']
+        
+
+
     @classmethod 
     def save(cls,data):
         query = 'INSERT INTO shoes (name, brand, model, size, price, description,user_id) VALUES(%(name)s,%(brand)s,%(model)s,%(size)s,%(price)s,%(description)s,%(user_id)s);'
         return connectToMySQL(cls.db_name).query_db(query, data)
-
+    
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM shoes;"
@@ -33,15 +36,27 @@ class Shoe:
         for row in results:
             all_shoes.append( cls(row) )
         return all_shoes
+            
     
     @classmethod
-    def get_all_with_creator(cls):
-        query = "SELECT * FROM shoes left join users on user_id = users.id;"
+    def get_all_with_extra(cls):
+        query = "SELECT *,count(likes.id) as count FROM shoes left join users on user_id = users.id left join likes on shoes.id = likes.shoe_id group by shoes.id;"
         results =  connectToMySQL(cls.db_name).query_db(query)
         all_shoes = []
         for row in results:
             all_shoes.append( cls(row) )
         return all_shoes
+    
+    # @classmethod
+    # def get_all_with_creator(cls):
+    #     query = "SELECT * FROM shoes left join users on user_id = users.id;"
+    #     results =  connectToMySQL(cls.db_name).query_db(query)
+    #     all_shoes = []
+    #     for row in results:
+    #         all_shoes.append( cls(row) )
+    #     return all_shoes
+    
+    
     
     @classmethod
     def delete(cls, data):
@@ -50,10 +65,17 @@ class Shoe:
     
     
     @classmethod
-    def get_one(cls,data):
-        query = "SELECT * FROM shoes left join users on user_id = users.id WHERE shoes.id = %(id)s;"
+    def get_one_with_extra(cls,data):
+        query = "SELECT *,count(likes.id) as count FROM shoes left join users on user_id = users.id left join likes on shoes.id = likes.shoe_id WHERE shoes.id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query,data)
         return cls( results[0] )
+    
+    
+    # @classmethod
+    # def get_one(cls,data):
+    #     query = "SELECT * FROM shoes left join users on user_id = users.id WHERE shoes.id = %(id)s;"
+    #     results = connectToMySQL(cls.db_name).query_db(query,data)
+    #     return cls( results[0] )
 
     @classmethod
     def update(cls, data):

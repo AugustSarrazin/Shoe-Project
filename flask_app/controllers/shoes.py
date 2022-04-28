@@ -12,7 +12,7 @@ def dashboard():
     data = {
         "id":session['user_id']
     }
-    return render_template('dashboard.html',shoes=Shoe.get_all_with_creator(), user=User.get_by_id(data))
+    return render_template('dashboard.html',shoes=Shoe.get_all_with_extra(), user=User.get_by_id(data))
 
 @app.route('/new/shoe')
 def new_shoe():
@@ -36,6 +36,7 @@ def create_shoe():
         'size': request.form['size'],
         'price': request.form['price'],
         'description': request.form['description'],
+        'photo': request.form['photo'],
         'user_id': session['user_id']
     }
     Shoe.save(data)
@@ -82,7 +83,7 @@ def show_shoe(id):
     user_data = {
         "id":session['user_id']
     }
-    return render_template("shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data), comments=Comment.get_comment_with_nick_name(data),like=Likecount.likescount(data))
+    return render_template("shoe.html",shoe=Shoe.get_one_with_extra(data),user=User.get_by_id(user_data), comments=Comment.get_comment_with_nick_name(data))
 
 
 @app.route('/delete/shoe/<int:id>')
@@ -94,3 +95,6 @@ def destroy_shoe(id):
     }
     Shoe.delete(data)
     return redirect('/dashboard')
+
+
+
