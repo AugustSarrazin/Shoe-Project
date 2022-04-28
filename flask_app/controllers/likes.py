@@ -9,6 +9,11 @@ from flask_app.models.like import Like
 def like(id):
     if 'user_id' not in session:
         return redirect('/logout')
+    user_data = {
+        'user_id': session["user_id"]
+    }
+    if not Like.validate_like(user_data):
+        return redirect(f"/shoe/{request.form['shoe.id']}")
     data = {
         
         'shoe_id':id,

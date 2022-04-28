@@ -40,5 +40,14 @@ class Like:
     def save(cls,data):
         query = 'INSERT INTO likes (shoe_id,user_id) VALUES (%(shoe_id)s, %(user_id)s);'
         return connectToMySQL(cls.db_name).query_db(query,data)
+    
+    @staticmethod
+    def validate_like(data):
+        is_valid = True
+        query = "SELECT * FROM likes WHERE user_id = %(user_id)s;"
+        results = connectToMySQL(Like.db_name).query_db(query,data)
+        if len(results) >=1:
+            is_valid=False
+        return is_valid 
 
 
