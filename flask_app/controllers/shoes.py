@@ -54,21 +54,21 @@ def edit_shoe(id):
     }
     return render_template("edit_shoe.html",shoe=Shoe.get_one_with_extra(data),user=User.get_by_id(user_data))
 
-@app.route('/update/shoe',methods=['POST'])
-def update_shoe():
+@app.route('/update/shoe/<int:id>',methods=['POST'])
+def update_shoe(id):
     if 'user_id' not in session:
         return redirect('/logout')
     if not Shoe.validate_shoe(request.form):
         return redirect('/dashboard')
     data = {
+        'id':id,
         'name': request.form['name'],
         'brand': request.form['brand'],
         'model': request.form['model'],
         'size': request.form['size'],
         'price': request.form['price'],
         'description': request.form['description'],
-        'user_id': request.form['user_id']
-        
+        'user_id': session['user_id']       
     }
     Shoe.update(data)
     return redirect('/dashboard')

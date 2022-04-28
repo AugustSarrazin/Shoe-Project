@@ -44,10 +44,10 @@ class Like:
     @staticmethod
     def validate_like(data):
         is_valid = True
-        query = "SELECT * FROM likes WHERE user_id = %(user_id)s;"
+        query = "SELECT id from likes WHERE user_id = %(user_id)s AND shoe_id = %(shoe_id)s;"
         results = connectToMySQL(Like.db_name).query_db(query,data)
-        if len(results) >=10:
-            is_valid=False
+        if len(results) >=1:
+            is_valid = False
         return is_valid 
 
 

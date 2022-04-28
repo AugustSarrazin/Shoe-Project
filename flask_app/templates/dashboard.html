@@ -8,9 +8,11 @@
     <title>Dash</title>
 </head>
 <body>
-    <div class="p-5 bg-dark text-black text-center" style="background-image: url('{{url_for('static',filename='image/bluesuede1.jpg') }}')">
-        <h1>Show Ur Sole</h1>
-        <p>A Space to Show Your Sole</p> 
+    <div class="p-4 bg-dark text-center border" style="background-image: url('{{url_for('static',filename='image/blazers.jpeg') }}')">
+        <div class="container w-25 bg-dark text-light border mb-2">
+            <h1>Show Ur Sole</h1>
+        </div>
+        <p class="p-2 container w-25 bg-dark text-warning border">A Space to Show Your Sole</p> 
     </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid justify-content-lg-center">
@@ -28,7 +30,7 @@
         <h1 class="text-center"> Welcome {{user.nick_name.capitalize()}}</h1>
         <h1 class="text-center"> </h1>
         <div class="container pt-5">
-            <h2>Hot Shoes</h2>
+            <h2>Our Shoes</h2>
             <hr>
         </div>
     </div>

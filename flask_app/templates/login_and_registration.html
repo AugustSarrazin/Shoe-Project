@@ -9,12 +9,15 @@
     <title>Login</title>
 </head>
 <body>
+    <div class="p-4 bg-dark text-center border" style="background-image: url('{{url_for('static',filename='image/questions.jpg') }}')">
+        <div class="container w-25 bg-dark text-info border mb-2">
+            <h1>Show Ur Sole</h1>
+        </div>
+        <p class="p-2 container w-25 bg-dark text-danger border">A Space to Show Your Sole</p> 
+    </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid justify-content-lg-center">
             <ul class="navbar-nav">
-                <li>
-                    <p class="navbar-brand">Show Ur Sole</p>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>  
                 </li>
@@ -55,11 +58,11 @@
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-label">Password:</label>
-                        <input type="text" name="password"  class="form-control">
+                        <input type="password" name="password"  class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="confirm_password" class="form-label">Confirm Password:</label>
-                        <input type="text" name="confirm_password"  class="form-control">
+                        <input type="password" name="confirm_password"  class="form-control">
                     </div>
                     <input type="Submit" value="Register" class="btn btn-dark col-sm-3 btn-sm my-2">                      
                 </form>
@@ -82,7 +85,7 @@
                 </div>        
                 <div class="form-group">
                     <label for="password" class="form-label">Password:</label>
-                    <input type="text" name="password"  class="form-control">
+                    <input type="password" name="password"  class="form-control">
                 </div>
                 <input type="Submit" value="Login" class="btn btn-dark col-sm-2 btn-sm my-2">  
             </form>

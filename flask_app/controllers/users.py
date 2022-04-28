@@ -28,7 +28,7 @@ def register():
     }
     id = User.save(data)
     session['user_id'] = id
-    return redirect('/')
+    return redirect('/dashboard')
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -40,7 +40,7 @@ def login():
         flash("Invalid Password","login")
         return redirect('/login_and_registration')
     session['user_id'] = user.id
-    return redirect('/')
+    return redirect('/dashboard')
 
 @app.route('/user/created')
 def show_names():

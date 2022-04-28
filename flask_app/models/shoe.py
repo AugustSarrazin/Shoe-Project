@@ -88,7 +88,7 @@ class Shoe:
 
     @classmethod
     def update(cls, data):
-        query = "UPDATE shoes SET name=%(name)s, brand=%(brand)s, model=%(model)s, size=%(size)s, price=%(price)s description=%(description)s WHERE id = %(id)s;"
+        query = "UPDATE shoes SET name=%(name)s, brand=%(brand)s, model=%(model)s, size=%(size)s, price=%(price)s, description=%(description)s WHERE id = %(id)s;"
         return connectToMySQL(cls.db_name).query_db(query,data)
     
     @classmethod

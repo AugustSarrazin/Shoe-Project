@@ -8,18 +8,23 @@
     <title>View</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-lg-end">
-        <ul class="navbar-nav">
-            <li>
-                <p class="navbar-brand">OUR WEBSITE</p>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Dashboard</a><!-- return to index page if not login -->    
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  href="/logout">Logout</a>
-            </li>
-        </ul>
+    <div class="p-4 bg-dark text-center border" style="background-image: url('{{url_for('static',filename='image/newbalance998.jpeg') }}')">
+        <div class="container w-25 bg-dark text-danger border mb-2">
+            <h1>Show Ur Sole</h1>
+        </div>
+        <p class="p-2 container w-25 bg-dark text-success border">A Space to Show Your Sole</p> 
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid justify-content-lg-center">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container">
         <div class="row mt-5">
@@ -35,7 +40,7 @@
                         <p>Size: {{shoe.size}}</p>
                         <p>Price: {{shoe.price}}</p>
                         <p>Descrption: {{shoe.description}}</p>
-                        <p>Like received: {{shoe.likes}}</p>
+                        <p>Likes received: {{shoe.likes}}</p>
                     </div>
                     <form action="/like/{{shoe.id}}" method="post" >
                         <input type="hidden" name ="shoe.id" value="{{shoe.id}}">  
