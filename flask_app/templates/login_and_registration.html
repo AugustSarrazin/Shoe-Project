@@ -9,60 +9,62 @@
     <title>Login</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-lg-end">
-        <ul class="navbar-nav">
-            <li>
-                <p class="navbar-brand">OUR WEBSITE</p>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Dashboard</a>  
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  href="/logout">Logout</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="conatiner row mt-5">
-        <div class="col">    
-            <form action="/new_user" method="post" class="col-6 mx-auto">
-                <h2 class="text-center">Register</h2>
-                {% with messages = get_flashed_messages(category_filter=['register']) %}
-                    {% if messages %}
-                    <div class="alert alert-danger" role="alert">
-                            {% for message in messages %}
-                            <p>{{message}}</p>
-                            {% endfor %}
-                    </div>
-                    {% endif %}
-                {% endwith %}
-                <div class="form-group">
-                    <label for="first_name" class="form-label">First Name:</label>
-                    <input type="text" name="first_name"  class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="last_name" class="form-label">Last Name:</label>
-                    <input type="text" name="last_name"  class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="text" name="email"  class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="nick_name" class="form-label">Nick Name:</label>
-                    <input type="text" name="nick_name"  class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="text" name="password"  class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="confirm_password" class="form-label">Confirm Password:</label>
-                    <input type="text" name="confirm_password"  class="form-control">
-                </div>
-                <input type="Submit" value="Register" class="btn btn-dark col-sm-3 btn-sm my-2">                      
-            </form>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid justify-content-lg-center">
+            <ul class="navbar-nav">
+                <li>
+                    <p class="navbar-brand">Show Ur Sole</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/logout">Logout</a>
+                </li>
+            </ul>
         </div>
-        <div class="col">
+    </nav>
+    <div class="conatiner-fluid row mt-5">
+        <div class="col bg-info m-2 p-2">
+                <form action="/new_user" method="post" class="col-6 mx-auto">
+                    <h2 class="text-center">Register</h2>
+                    {% with messages = get_flashed_messages(category_filter=['register']) %}
+                        {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                    <div class="form-group">
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" name="first_name"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name" class="form-label">Last Name:</label>
+                        <input type="text" name="last_name"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="text" name="email"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nick_name" class="form-label">Nick Name:</label>
+                        <input type="text" name="nick_name"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="text" name="password"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password" class="form-label">Confirm Password:</label>
+                        <input type="text" name="confirm_password"  class="form-control">
+                    </div>
+                    <input type="Submit" value="Register" class="btn btn-dark col-sm-3 btn-sm my-2">                      
+                </form>
+        </div>
+        <div class="col bg-danger m-2 p-2">
             <form action="/login" method="post" class="col-6 mx-auto">
                 <h2 class="text-center">Login</h2>
                 {% with messages = get_flashed_messages(category_filter=['login']) %}
