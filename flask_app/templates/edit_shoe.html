@@ -8,23 +8,25 @@
     <title>Edit</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-lg-end">
-        <ul class="navbar-nav">
-            <li>
-                <p class="navbar-brand">OUR WEBSITE</p>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  href="/logout">Logout</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid justify-content-lg-center">
+            <ul class="navbar-nav">
+                <li>
+                    <p class="navbar-brand">Show Ur Sole</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container mt-5">
         <h2>Edit Shoe</h2>
         <div class="row">
-            <form action="/update/shoe" method="post" class="col-5">
+            <form action="/update/shoe" method="post" class="col-5 bg-warning">
                 {% with messages = get_flashed_messages(category_filter=['shoe']) %}
                     {% if messages %}
                     <div class="alert alert-danger" role="alert">

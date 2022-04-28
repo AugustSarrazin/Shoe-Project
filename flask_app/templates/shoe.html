@@ -8,23 +8,25 @@
     <title>View</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-lg-end">
-        <ul class="navbar-nav">
-            <li>
-                <p class="navbar-brand">OUR WEBSITE</p>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Dashboard</a><!-- return to index page if not login -->    
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"  href="/logout">Logout</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid justify-content-lg-center">
+            <ul class="navbar-nav">
+                <li>
+                    <p class="navbar-brand">Show Ur Sole</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="container">
         <div class="row mt-5">
             <div class="col">
-                <div class="container">
+                <div class="container bg-gradient-info p-2">
                     <h3>{{shoe.name}}</h3>
                     <img src="" alt="" style="display:inline-block">
                     <div style="display:inline-block">
@@ -44,6 +46,14 @@
                 </div>
             </div>
             <div class="container col">
+
+                <div class="mb-4">
+                    <form action="/comment" method="post">
+                        <input type="hidden" name ="shoe.id" value="{{shoe.id}}">    
+                        <input type="text" name="comment"  class="form-control">
+                        <input class="btn btn-dark col-sm-3 mt-2" type="Submit" value="Post Comment"> 
+                    </form>
+                </div>
                 <table class="table table-dark table-hover table-bordered table-striped"> 
                     <thead>
                         <td>Nick name</td>
@@ -58,13 +68,6 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <div class="mt-4">
-                    <form action="/comment" method="post">
-                        <input type="hidden" name ="shoe.id" value="{{shoe.id}}">    
-                        <input type="text" name="comment"  class="form-control">
-                        <input class="btn btn-dark col-sm-3 mt-2" type="Submit" value="Post Comment"> 
-                    </form>
-                </div>
             </div>
         </div>
     </div>
