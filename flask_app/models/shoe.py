@@ -57,12 +57,21 @@ class Shoe:
     #     return all_shoes
     
     
+    @classmethod
+    def delete_like(cls, data):
+        query = "DELETE FROM likes Where shoe_id = %(id)s;"       
+        return connectToMySQL(cls.db_name).query_db(query,data)
+    
+    @classmethod
+    def delete_comment(cls, data):
+        query = "DELETE FROM comments Where shoe_id = %(id)s;"  
+        return connectToMySQL(cls.db_name).query_db(query,data)
     
     @classmethod
     def delete(cls, data):
         query = "DELETE FROM shoes Where id = %(id)s;"
+        
         return connectToMySQL(cls.db_name).query_db(query,data)
-    
     
     @classmethod
     def get_one_with_extra(cls,data):

@@ -52,7 +52,7 @@ def edit_shoe(id):
     user_data = {
         "id":session['user_id']
     }
-    return render_template("edit_shoe.html",shoe=Shoe.get_one(data),user=User.get_by_id(user_data))
+    return render_template("edit_shoe.html",shoe=Shoe.get_one_with_extra(data),user=User.get_by_id(user_data))
 
 @app.route('/update/shoe',methods=['POST'])
 def update_shoe():
@@ -93,6 +93,8 @@ def destroy_shoe(id):
     data = {
         "id":id
     }
+    Shoe.delete_comment(data)
+    Shoe.delete_like(data)
     Shoe.delete(data)
     return redirect('/dashboard')
 
