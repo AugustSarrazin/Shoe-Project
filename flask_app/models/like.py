@@ -46,7 +46,7 @@ class Like:
         is_valid = True
         query = "SELECT * FROM likes WHERE user_id = %(user_id)s;"
         results = connectToMySQL(Like.db_name).query_db(query,data)
-        if len(results) >=1:
+        if len(results) >=10:
             is_valid=False
         return is_valid 
 
