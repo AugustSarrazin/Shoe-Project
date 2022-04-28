@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Edit</title>
 </head>
 <body>
-    <div class="container pt-5">
-        <header>
-            <div class="row d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="/dashboard" class="btn btn-dark col-sm-2 btn-sm">Dashboard</a>
-                <a href="/logout" class="btn btn-dark col-sm-2 btn-sm">LogOut</a>
-            </div>
-        </header>
-    </div>
-    <div class="container">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-lg-end">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/login_and_registration">Login/Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="/logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container mt-5">
         <h2>Edit Shoe</h2>
-        <div class="row border">
-            <form action="/update/shoe" method="post" class="col-6">
+        <div class="row">
+            <form action="/update/shoe" method="post" class="col-5">
                 {% with messages = get_flashed_messages(category_filter=['shoe']) %}
                     {% if messages %}
                     <div class="alert alert-danger" role="alert">
@@ -61,7 +66,7 @@
                     <label for="description" class="form-label">Description:</label>
                     <textarea name="description" id="" cols="60" rows="10" placeholder="{{shoe.description}}" class="form-control"></textarea>
                 </div>
-                <input type="Submit" value="Edit" class="btn btn-dark col-sm-2 btn-sm mt-2">                      
+                <input type="Submit" value="Edit" class="btn btn-dark col-sm-4 btn-sm my-2">                      
             </form>
         </div>
     </div>
